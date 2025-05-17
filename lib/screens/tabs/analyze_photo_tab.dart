@@ -214,7 +214,8 @@ class _AnalyzePhotoTabState extends State<AnalyzePhotoTab> {
                 height: 120,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.grey,
+                    // Utiliser une couleur qui s'adapte au thème
+                    color: Theme.of(context).dividerColor,
                     width: 1,
                     style: BorderStyle.solid,
                   ),
@@ -229,13 +230,15 @@ class _AnalyzePhotoTabState extends State<AnalyzePhotoTab> {
                         Icon(
                           Icons.add_photo_alternate_outlined,
                           size: 36,
+                          // Utiliser la couleur du thème au lieu d'une couleur fixe
                           color: Theme.of(context).primaryColor,
                         ),
                         SizedBox(height: 8),
                         Text(
                           "Ajouter des radiographies",
                           style: TextStyle(
-                            color: Colors.black87,
+                            // Utiliser la couleur du texte du thème actuel
+                            color: Theme.of(context).textTheme.bodyMedium?.color,
                             fontSize: 16,
                           ),
                         ),

@@ -38,7 +38,8 @@ class _SubmitCaseTabState extends State<SubmitCaseTab> {
             Text(
               'Téléchargez des images de radiographie pulmonaire et indiquez si elles présentent des signes de pneumonie.',
               style: TextStyle(
-                color: Colors.grey[700],
+                // Utiliser la couleur du texte du thème avec opacité
+                color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.8),
               ),
             ),
             SizedBox(height: 24),
@@ -50,7 +51,8 @@ class _SubmitCaseTabState extends State<SubmitCaseTab> {
                 height: 120,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.grey,
+                    // Utiliser la couleur du séparateur du thème
+                    color: Theme.of(context).dividerColor,
                     width: 1,
                     style: BorderStyle.solid,
                   ),
@@ -71,7 +73,8 @@ class _SubmitCaseTabState extends State<SubmitCaseTab> {
                         Text(
                           "Ajouter des radiographies",
                           style: TextStyle(
-                            color: Colors.black87,
+                            // Utiliser la couleur du texte du thème
+                            color: Theme.of(context).textTheme.bodyMedium?.color,
                             fontSize: 16,
                           ),
                         ),
@@ -89,7 +92,8 @@ class _SubmitCaseTabState extends State<SubmitCaseTab> {
                     child: Text(
                       'Aucune image téléchargée',
                       style: TextStyle(
-                        color: Colors.grey[600],
+                        // Utiliser la couleur du texte du thème avec opacité
+                        color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.7),
                         fontSize: 16,
                       ),
                     ),
@@ -375,7 +379,7 @@ class DashedBorder extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: CustomPaint(
-        painter: DashBorderPainter(),
+        painter: DashBorderPainter(context),
         child: child,
       ),
     );
@@ -383,10 +387,15 @@ class DashedBorder extends StatelessWidget {
 }
 
 class DashBorderPainter extends CustomPainter {
+  final BuildContext context;
+  
+  DashBorderPainter(this.context);
+  
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.grey
+      // Utiliser la couleur des séparateurs du thème
+      ..color = Theme.of(context).dividerColor
       ..strokeWidth = 1
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;

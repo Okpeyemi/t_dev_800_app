@@ -1,28 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
+import '../providers/theme_provider.dart';
 import '../screens/user_history_screen.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final TabBar? bottom;
-  final bool automaticallyImplyLeading; // Nouveau paramètre
+  final bool automaticallyImplyLeading;
 
   const CustomAppBar({
     super.key,
     required this.title,
     this.bottom,
-    this.automaticallyImplyLeading = true, // Par défaut à true
+    this.automaticallyImplyLeading = true,
   });
 
   @override
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthProvider>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
     
     return AppBar(
-      automaticallyImplyLeading: automaticallyImplyLeading, // Contrôle l'affichage du bouton retour
+      automaticallyImplyLeading: automaticallyImplyLeading,
       title: Text(title),
       actions: [
+        // Bouton de thème
+        IconButton(
+          icon: Icon(
+            themeProvider.isDarkMode ? Icons.light_mode : Icons.dark_mode,
+          ),
+          tooltip: themeProvider.isDarkMode ? 'Passer en mode clair' : 'Passer en mode sombre',
+          onPressed: () {
+            themeProvider.toggleTheme();
+          },
+        ),
         Row(
           children: [
             Text(authProvider.username),
