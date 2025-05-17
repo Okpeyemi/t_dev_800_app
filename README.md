@@ -1,16 +1,37 @@
-# t_dev_800_app
+# Photo Analysis App
 
-A new Flutter project.
+Une application mobile pour l'analyse de radiographies pulmonaires à des fins de détection de pneumonie.
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
+Cette application Flutter permet aux professionnels de santé d'analyser des radiographies pulmonaires pour détecter des signes de pneumonie. Elle offre également la possibilité de soumettre des cas annotés pour contribuer à l'amélioration des modèles de détection.
 
-A few resources to get you started if this is your first Flutter project:
+## Fonctionnalités
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Authentification sécurisée**: Système de connexion et d'inscription
+- **Analyse d'images**: Téléchargement et analyse automatique de radiographies pulmonaires
+- **Soumission de cas**: Contribution à la base de données avec étiquetage des images (sain/pneumonie)
+- **Historique utilisateur**: Suivi des analyses précédentes et des cas soumis
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+### Prérequis
+
+- Flutter (dernière version stable)
+- Dart SDK
+- Android Studio / Xcode (selon la plateforme cible)
+
+### Étapes d'installation
+
+```bash
+# Cloner le dépôt
+git clone https://github.com/votre-username/t_dev_800_app.git
+
+# Accéder au répertoire du projet
+cd t_dev_800_app
+
+# Installer les dépendances
+flutter pub get
+
+# Exécuter l'application
+flutter run
